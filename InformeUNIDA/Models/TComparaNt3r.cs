@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace InformeUNIDA.Models
+{
+    public partial class TComparaNt3r
+    {
+        public string Proceso { get; set; }
+        public decimal? NpromedioR2 { get; set; }
+        public short? GaprobadoR2 { get; set; }
+        public string TResultado { get; set; }
+        public string TPuntaje { get; set; }
+        public string Dprograma { get; set; }
+        public string Speriodo { get; set; }
+        public string Cingreso { get; set; }
+        public string Dpersona { get; set; }
+        public string Scurso { get; set; }
+        public string Dcurso { get; set; }
+        public short GtipoAprobacion { get; set; }
+        public short? FGestado { get; set; }
+        public decimal? NpuntajeHistorico { get; set; }
+        public short EsAprobadoHistorico { get; set; }
+        public int? NpuntajeRecalculo { get; set; }
+        public string ComparaNr { get; set; }
+        public string Detalle { get; set; }
+        public decimal? Av1 { get; set; }
+        public decimal? Av2 { get; set; }
+        public decimal? Pf1 { get; set; }
+        public decimal? Pf2 { get; set; }
+        public decimal? Pe { get; set; }
+        public decimal? Tp { get; set; }
+        public decimal? Pf { get; set; }
+        public string Grupo { get; set; }
+        public short? GtipoCredito { get; set; }
+        public short? Ccarrera { get; set; }
+        public short? CcarreraEstado { get; set; }
+        public string Dcarrera { get; set; }
+        public int Calumno { get; set; }
+        public short Cperiodo { get; set; }
+        public int Cpersona { get; set; }
+        public short Ccurso { get; set; }
+    }
+}

@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace InformeUNIDA.Models
+{
+    public partial class EncuestaFuncionarioAAutoevaluacion
+    {
+        public int Cencuesta { get; set; }
+        public int Cinstitucion { get; set; }
+        public int Anio { get; set; }
+        public int CusuarioFuncionario { get; set; }
+        public int Preguntanumero { get; set; }
+        public bool? Resp1 { get; set; }
+        public bool? Resp2 { get; set; }
+        public bool? Resp3 { get; set; }
+        public bool? Resp4 { get; set; }
+        public string Comentario { get; set; }
+        public string Departamento { get; set; }
+        public string Antiguedad { get; set; }
+        public string Profesion { get; set; }
+        public string Estudiante { get; set; }
+        public string Cargo { get; set; }
+        public DateTime? FechaIngreso { get; set; }
+        public string Posgrado { get; set; }
+        public string Semestre { get; set; }
+        public DateTime? Fecharegistro { get; set; }
+        public string Cuestionario { get; set; }
+    }
+}

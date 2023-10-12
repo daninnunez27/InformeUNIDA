@@ -1,0 +1,506 @@
+﻿@model InformeUNIDA.ModelsView.EncuestaViewModel
+@{
+    ViewData["Title"] = "Index";
+    //Layout = null;
+
+    
+
+
+}
+
+@*<script>
+    alert(@ViewBag.cusuario)
+</script>*@
+
+<link href="~/css/Accordion.css" rel="stylesheet" />
+
+<div class="card">
+
+    <div class="card-header alert-primary row">
+        <div class="col">Encuesta UNIDA</div> <div class="col text-right">@ViewBag.funcionario</div>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 m-0 p-0" >
+                    <div class="container">
+
+                        <input type="hidden" name="cusuario" id="cusuario" value="@ViewBag.cusuario" />
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xl-2">Institución</div>
+                            <div class="col-sm-12 col-md-12 col-xl-10">
+                                <div class="form-group">
+                                    @if (ViewBag.ListaInstitucion != null)
+                                    {
+                                        <select asp-for="Institucion" class="form-control"
+                                                asp-items="@(new SelectList(@ViewBag.ListaInstitucion,"Value","Text"))">
+                                        </select>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xl-2">Programa</div>
+                            <div class="col-sm-12 col-md-12 col-xl-10">
+                                <div class="form-group">
+                                    <select asp-for="Programa" class="form-control"
+                                            asp-items="@(new SelectList(""))">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xl-2">Periodo</div>
+                            <div class="col-sm-12 col-md-12 col-xl-10">
+                                <div class="form-group">
+                                    <select asp-for="Periodo" class="form-control"
+                                            asp-items="@(new SelectList(""))">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xl-2">Carr./Coord./Dec.</div>
+                            <div class="col-sm-12 col-md-12 col-xl-10">
+                                <div class="form-group">
+                                    <select asp-for="Carrera" class="form-control"
+                                            asp-items="@(new SelectList(""))">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xl-2">Doc./Egre./Coord.</div>
+                            <div class="col-sm-12 col-md-12 col-xl-10">
+                                <div class="form-group">
+                                    <select asp-for="Profesor" class="form-control"
+                                            asp-items="@(new SelectList(""))">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 m-0 p-0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            Opciones de Reporte :
+                                        </div>
+                                        <div class="card-body m-0 p-0">
+
+                                            <div id="accordion" class="myaccordion m-0 p-0">
+                                                <div class="card">
+                                                    <div class="card-header" id="headingOne">
+                                                        <h2 class="mb-0">
+                                                            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                                                Encuesta de Alumno
+                                                                <span class="fa-stack fa-sm">
+                                                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                                                    <i class="fas fa-plus fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                        <div class="card-body">
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="alumno_docente_grafico" value="1">
+                                                                    <label class="form-check-label" for="alumno_docente_grafico">
+                                                                        Alumno a Docente - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="alumno_docente_resumen" value="2" checked>
+                                                                    <label class="form-check-label" for="alumno_docente_resumen">
+                                                                        Alumno a Docente - Resumen
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="alumno_biblioteca_grafico" value="3">
+                                                                    <label class="form-check-label" for="alumno_biblioteca_grafico">
+                                                                        Alumno a Biblioteca - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="alumno_sga_grafico" value="4">
+                                                                    <label class="form-check-label" for="alumno_sga_grafico">
+                                                                        Alumno a SGA - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="alumno_coordinador_resumen" value="5">
+                                                                    <label class="form-check-label" for="alumno_coordinador_resumen">
+                                                                        Alumno a Coordinador - Resumen
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="alumno_cafeteria_grafico" value="6" >
+                                                                    <label class="form-check-label" for="alumno_cafeteria_grafico">
+                                                                        Alumno a Cafetería - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="alumno_infraestructura_grafico" value="7">
+                                                                    <label class="form-check-label" for="alumno_infraestructura_grafico">
+                                                                        Alumno a Infraestructura - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="alumno_libreria_grafico" value="8" >
+                                                                    <label class="form-check-label" for="alumno_libreria_grafico">
+                                                                        Alumno a Librería - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="alumno_laboratorio_grafico" value="9">
+                                                                    <label class="form-check-label" for="alumno_laboratorio_grafico">
+                                                                        Alumno a Laboratorio - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="alumno_satisfaccion_grafico" value="23">
+                                                                    <label class="form-check-label" for="alumno_satisfaccion_grafico">
+                                                                        Alumno a Satisfacción - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header" id="headingTwo">
+                                                        <h2 class="mb-0">
+                                                            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                Encuesta de Docente
+                                                                <span class="fa-stack fa-2x">
+                                                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                                                    <i class="fas fa-plus fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                                        <div class="card-body">
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_autoevaluacion_grafico" value="10">
+                                                                    <label class="form-check-label" for="docente_autoevaluacion_grafico">
+                                                                        Docente a Autoevaluación - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_biblioteca_grafico" value="11">
+                                                                    <label class="form-check-label" for="docente_biblioteca_grafico">
+                                                                        Docente a Biblioteca - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_cafeteria_grafico" value="12" >
+                                                                    <label class="form-check-label" for="docente_cafeteria_grafico">
+                                                                        Docente a Cafetería - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_infraestructura_grafico" value="13">
+                                                                    <label class="form-check-label" for="docente_infraestructura_grafico">
+                                                                        Docente a Infraestructura - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_laboratorio_grafico" value="14">
+                                                                    <label class="form-check-label" for="docente_laboratorio_grafico">
+                                                                        Docente a Laboratorio - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_libreria_grafico" value="15" >
+                                                                    <label class="form-check-label" for="docente_libreria_grafico">
+                                                                        Docente a Librería - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_sgp_grafico" value="16">
+                                                                    <label class="form-check-label" for="docente_sgp_grafico">
+                                                                        Docente a SGP - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_alumno_grafico" value="17">
+                                                                    <label class="form-check-label" for="docente_alumno_grafico">
+                                                                        Docente a Alumno - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_coordinador_resumen" value="18">
+                                                                    <label class="form-check-label" for="docente_coordinador_resumen">
+                                                                        Docente a Coordinador - Resumen
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_satisfaccion_grafico" value="24">
+                                                                    <label class="form-check-label" for="docente_satisfaccion_grafico">
+                                                                        Docente a Satisfacción - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_satisfaccion_resumen" value="25">
+                                                                    <label class="form-check-label" for="docente_satisfaccion_resumen">
+                                                                        Docente a Satisfacción - Resumen
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_satisfaccion_grafico2" value="27">
+                                                                    <label class="form-check-label" for="docente_satisfaccion_grafico2">
+                                                                        Docente a Satisfacción - Gráfico F2
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="docente_satisfaccion_resumen2" value="28">
+                                                                    <label class="form-check-label" for="docente_satisfaccion_resumen2">
+                                                                        Docente a Satisfacción - Resumen F2
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header" id="headingThree">
+                                                        <h2 class="mb-0">
+                                                            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                Encuesta de Funcionario
+                                                                <span class="fa-stack fa-2x">
+                                                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                                                    <i class="fas fa-plus fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                                        <div class="card-body">
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="funcionario_autoevaluacion_del_desempenio_grafico" value="19">
+                                                                    <label class="form-check-label" for="funcionario_autoevaluacion_del_desempenio_grafico">
+                                                                        Autoevaluación del Desempeño - Gráfico
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header" id="headingFour">
+                                                        <h2 class="mb-0">
+                                                            <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                                Encuesta de Egresado
+                                                                <span class="fa-stack fa-2x">
+                                                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                                                    <i class="fas fa-plus fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                                        <div class="card-body">
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1" || ViewBag.vir == "1")
+                                                            {
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="egresado_retroalimentacion_resumen" value="20" >
+                                                                    <label class="form-check-label" for="egresado_retroaliminentacion_resumen">
+                                                                        Egresado a Retroalimentación - Resumen
+                                                                    </label>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header" id="headingFive">
+                                                        <h2 class="mb-0">
+                                                            @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                            {
+                                                                <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="headingFive">
+                                                                    Encuesta de Coordinadores
+                                                                    <span class="fa-stack fa-2x">
+                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                        <i class="fas fa-plus fa-stack-1x fa-inverse"></i>
+                                                                    </span>
+                                                                </button>
+                                                            }
+                                                        </h2>
+                                                    </div>
+                                                    @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                    {
+                                                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                                                            <div class="card-body">
+
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="reporte" id="coordinador_autoevaluacion_grafico" value="21">
+                                                                    <label class="form-check-label" for="coordinador_autoevaluacion_grafico">
+                                                                        Coordinador a Autoevaluación - Gráfico
+                                                                    </label>
+                                                                </div>
+
+                                                                @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                                {
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="reporte" id="coordinador_docente_grafico" value="22">
+                                                                        <label class="form-check-label" for="coordinador_docente_grafico">
+                                                                            Coordinador a Docente - Grafico
+                                                                        </label>
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                                @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                {
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingSix">
+                                                            <h2 class="mb-0">
+
+                                                                <button class="d-flex align-items-center justify-content-between btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="headingSix">
+                                                                    Encuesta de Autoridades
+                                                                    <span class="fa-stack fa-2x">
+                                                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                                                        <i class="fas fa-plus fa-stack-1x fa-inverse"></i>
+                                                                    </span>
+                                                                </button>
+                                                       
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                @if (ViewBag.pre == "1" || ViewBag.pos == "1")
+                                                                {
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="reporte" id="decano_coordinador_resumen" value="26">
+                                                                        <label class="form-check-label" for="decano_coordinador_resumen">
+                                                                            Decano a Coordinador - Resumen
+                                                                        </label>
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn btn-outline-danger" id="btn_reporte_pdf">PDF</button>
+                    <button type="button" class="btn btn-outline-success" id="btn_reporte_excel" onclick="ExportarExcel()">XLSX</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form asp-controller="Encuesta" asp-action="ProcesarExportar" id="frmReporte" method="post">
+    <input type="hidden" name="cinstitucion_p" id="cinstitucion_p" />
+    <input type="hidden" name="cprograma_p" id="cprograma_p" />
+    <input type="hidden" name="cperiodo_p" id="cperiodo_p" />
+    <input type="hidden" name="ccarrera_p" id="ccarrera_p" />
+    <input type="hidden" name="cprofesor_p" id="cprofesor_p" />
+    <input type="hidden" name="opcion_p" id="opcion_p" />
+</form>
+
+<div class="row">
+    <div class="col-12 text-center">
+        <button class="btn btn-primary" type="button" disabled id="btn_procesar">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            ...Procesando espere por favor...
+        </button>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12" id="DisplayPDF"></div>
+    </div>
+</div>
+
+<script src="~/js/sweetalert.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/EncuestaAlumnoDocente.js"></script>

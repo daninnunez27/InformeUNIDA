@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace InformeUNIDA.Models
+{
+    public partial class TMigraFichahDup
+    {
+        public short? Cperiodo { get; set; }
+        public int? Calumno { get; set; }
+        public short? Ccurso { get; set; }
+        public int? Cantidad { get; set; }
+    }
+}

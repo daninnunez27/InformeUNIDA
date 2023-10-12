@@ -1,0 +1,4 @@
+"ConnectionStrings": {
+    "DefaultConnection": "Server=192.168.0.17;Database=sofya_Acad10;User ID=sa;W2k3;Trusted_Connection=False;"
+  },
+Scaffold-DBContext "Data Source=192.168.0.17;Initial Catalog=sofya_Acad;User ID=sa;password=l8h1RjhiChG#" Microsoft.EntityFrameworkCore.SqlServer -Output Models -force

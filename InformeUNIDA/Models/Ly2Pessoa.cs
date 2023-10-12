@@ -1,0 +1,121 @@
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
+
+namespace InformeUNIDA.Models
+{
+    public partial class Ly2Pessoa
+    {
+        public decimal Pessoa { get; set; }
+        public string HabTac { get; set; }
+        public string NomeCompl { get; set; }
+        public string NomeAbrev { get; set; }
+        public DateTime? DtNasc { get; set; }
+        public string MunicipioNasc { get; set; }
+        public string PaisNasc { get; set; }
+        public string Nacionalidade { get; set; }
+        public string NomePai { get; set; }
+        public string NomeMae { get; set; }
+        public string Sexo { get; set; }
+        public string EstCivil { get; set; }
+        public string EndCorreto { get; set; }
+        public string Endereco { get; set; }
+        public string EndNum { get; set; }
+        public string EndCompl { get; set; }
+        public string Bairro { get; set; }
+        public string EndMunicipio { get; set; }
+        public string Cep { get; set; }
+        public string Fone { get; set; }
+        public string Profissao { get; set; }
+        public string NomeEmpresa { get; set; }
+        public string Cargo { get; set; }
+        public string Endcom { get; set; }
+        public string EndcomNum { get; set; }
+        public string EndcomCompl { get; set; }
+        public string EndcomBairro { get; set; }
+        public string EndcomMunicipio { get; set; }
+        public string EndcomCep { get; set; }
+        public string FoneCom { get; set; }
+        public string Fax { get; set; }
+        public string RgNum { get; set; }
+        public string RgTipo { get; set; }
+        public string RgEmissor { get; set; }
+        public string RgUf { get; set; }
+        public DateTime? RgDtexp { get; set; }
+        public string Cpf { get; set; }
+        public string AlistNum { get; set; }
+        public string AlistSerie { get; set; }
+        public string AlistRm { get; set; }
+        public string AlistCsm { get; set; }
+        public DateTime? AlistDtexp { get; set; }
+        public string CrNum { get; set; }
+        public string CrCat { get; set; }
+        public string CrSerie { get; set; }
+        public string CrRm { get; set; }
+        public string CrCsm { get; set; }
+        public DateTime? CrDtexp { get; set; }
+        public string TeleitorNum { get; set; }
+        public string TeleitorZona { get; set; }
+        public string TeleitorSecao { get; set; }
+        public DateTime? TeleitorDtexp { get; set; }
+        public string CprofNum { get; set; }
+        public string CprofSerie { get; set; }
+        public string CprofUf { get; set; }
+        public DateTime? CprofDtexp { get; set; }
+        public string EMail { get; set; }
+        public string Mailbox { get; set; }
+        public DateTime? HabTacData { get; set; }
+        public string Obs { get; set; }
+        public string SenhaTac { get; set; }
+        public DateTime? DtFalecimento { get; set; }
+        public decimal? NumFunc { get; set; }
+        public string RespNomeCompl { get; set; }
+        public string RespMunicipioNasc { get; set; }
+        public string RespNacionalidade { get; set; }
+        public string RespSexo { get; set; }
+        public string RespEstCivil { get; set; }
+        public string RespEndereco { get; set; }
+        public string RespEndNum { get; set; }
+        public string RespEndCompl { get; set; }
+        public string RespBairro { get; set; }
+        public string RespEndMunicipio { get; set; }
+        public string RespCep { get; set; }
+        public string RespFone { get; set; }
+        public string RespRgNum { get; set; }
+        public string RespRgTipo { get; set; }
+        public string RespRgEmissor { get; set; }
+        public string RespRgUf { get; set; }
+        public string RespCpf { get; set; }
+        public string Celular { get; set; }
+        public string FaxRes { get; set; }
+        public string EMailCom { get; set; }
+        public string EMailInterno { get; set; }
+        public string NomeConjuge { get; set; }
+        public string ObsTelRes { get; set; }
+        public string ObsTelCom { get; set; }
+        public string DividaBiblio { get; set; }
+        public string NecessidadeEspecial { get; set; }
+        public string RespSenha { get; set; }
+        public string TeleitorMun { get; set; }
+        public string EndPais { get; set; }
+        public string EndcomPais { get; set; }
+        public string RespEndPais { get; set; }
+        public decimal? RendaMensal { get; set; }
+        public string CorRaca { get; set; }
+        public string AreaProf { get; set; }
+        public string Especializacao { get; set; }
+        public string CertNascNum { get; set; }
+        public string CertNascFolha { get; set; }
+        public string CertNascLivro { get; set; }
+        public DateTime? CertNascEmissao { get; set; }
+        public string CertNascCartorioUf { get; set; }
+        public string CertNascCartorioExped { get; set; }
+        public string FoneRecados { get; set; }
+        public string AutorizaEnvioMail { get; set; }
+        public string ConselhoRegional { get; set; }
+        public string Permiteacescadsemsenha { get; set; }
+        public string Passaporte { get; set; }
+        public int? Cpersona { get; set; }
+    }
+}
